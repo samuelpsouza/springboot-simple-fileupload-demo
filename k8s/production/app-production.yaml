@@ -1,19 +1,19 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: upload-demo
+  name: upload-demo-${TARGET_ROLE}
 spec:
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       name: upload-demo
       labels:
         app: upload-demo
-        env: production
+        role: {TARGET_ROLE}
     spec:
       containers:
       - name: demo
-        image: 
+        image: demo:${BUILD_NUMBER}
         resources:
           limits:
             memory: "500Mi"
@@ -21,7 +21,7 @@ spec:
         imagePullPolicy: Always
         readinessProbe:
           httpGet:
-            path: /healthz
+            path: /
             port: 8080
         ports:
         - name: upload-demo

@@ -2,11 +2,14 @@ kind: Service
 apiVersion: v1
 metadata:
   name: upload-demo
+  labels:
+    role: ${TARGET_ROLE}
+    env: production
 spec:
-  ports:
-  - name: http
-    port: 8080
-    targetPort: 8080
-    protocol: TCP
+  type: LoadBalancer
   selector:
-    app: upload-demo
+    app: tomcat
+    role: ${TARGET_ROLE}
+  ports:
+    - port: 80
+      targetPort: 8080
