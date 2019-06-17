@@ -1,13 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  labels: 
-    run: upload-springboot
-  name: upload-springboot
+  name: upload-springboot-service
 spec:
   type: LoadBalancer
   selector:
-    matchLabels:
       run: upload-springboot
   ports:
     - port: 80
