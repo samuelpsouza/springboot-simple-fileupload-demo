@@ -1,15 +1,14 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: upload-demo
-  labels:
-    role: ${TARGET_ROLE}
-    env: production
+  labels: 
+    run: upload-springboot
+  name: upload-springboot
 spec:
   type: LoadBalancer
   selector:
-    app: tomcat
-    role: ${TARGET_ROLE}
+    matchLabels:
+      run: upload-springboot
   ports:
     - port: 80
       targetPort: 8080
