@@ -19,6 +19,11 @@ public class RestCtrl {
 
     @GetMapping("/hello")
     public ResponseEntity<String> greeting(){
-        return ResponseEntity.ok().body("Hello");
+        return ResponseEntity.ok().body("Hello World!");
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<String> greeting(){
+        return ResponseEntity.ok().body("Welcome!");
     }
 }
