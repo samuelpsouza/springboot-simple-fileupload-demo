@@ -1,5 +1,5 @@
 kind: Deployment
-apiVersion: extensions/v1beta1
+apiVersion: v1
 metadata:
   name: upload-demo
 spec:
