@@ -13,6 +13,6 @@ spec:
       - name: demo
         image: us-ashburn-1.ocir.io/unifor/celula09/demo-springboot:latest
         ports:
-          containerPort: 8080
+        - containerPort: 8080
       imagePullSecrets:
       - name: $KUBERNETES_SECRET_NAME
