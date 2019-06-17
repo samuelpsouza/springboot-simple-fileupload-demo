@@ -1,16 +1,21 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: demo
+  labels: 
+    run: upload-springboot
+  name: upload-springboot
 spec:
   replicas: 2
+  selector:
+    matchLabels:
+      run: upload-springboot
   template:
     metadata:
       labels:
-        app: demo
+        run: upload-springboot
     spec:
       containers:
-      - name: demo
+      - name: upload-springboot
         image: us-ashburn-1.ocir.io/unifor/celula09/demo-springboot:latest
         ports:
         - containerPort: 8080
