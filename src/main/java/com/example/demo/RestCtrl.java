@@ -23,7 +23,7 @@ public class RestCtrl {
     }
 
     @GetMapping("/")
-    public ResponseEntity<String> greeting(){
+    public ResponseEntity<String> greetingTwo(){
         return ResponseEntity.ok().body("Welcome!");
     }
 }
